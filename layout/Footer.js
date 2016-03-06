@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import classnames from 'classnames';
-import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters';
+import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../todos/filters';
 import { RaisedButton, List, ListItem, Divider, Styles } from 'material-ui';
 
 import InboxIcon from 'material-ui/lib/svg-icons/content/inbox';

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import TodoItem from './TodoItem';
-import Footer from './Footer';
-import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters';
+import TodoItem from '../todos/components/TodoItem';
+import Footer from '../layout/Footer';
+import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../todos/filters';
 import { Checkbox, List } from 'material-ui';
 
 const defaultStyle = {
