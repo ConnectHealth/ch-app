@@ -4,14 +4,17 @@ import { connect } from 'react-redux';
 
 import Header from './Header';
 import MainSection from '../layout/MainSection';
-import * as TodoActions from '../todos/actions.js';
+// import * as TodoActions from '../todos/actions';
+import todosfixme from '../todos';
+console.log(todosfixme.actions)
+console.log('ddddddddddddddddddddd')
 
 class App extends Component {
   render() {
     const { todos, actions } = this.props;
     return (
       <div>
-        <Header addTodo={actions.addTodo} />
+        <Header add={todosfixme.actions.add} />
         <MainSection todos={todos} actions={actions} />
       </div>
     );
@@ -32,7 +35,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(TodoActions, dispatch)
+    actions: bindActionCreators(todosfixme.actions, dispatch)
   };
 }
 

@@ -1,25 +1,27 @@
-import * as types from '../todos/actionTypes';
+import * as t from '../todos/actionTypes';
 
-export function addTodo(text) {
-  return { type: types.ADD_TODO, text };
+export function add(text) {
+  console.log("bbbbbbbbbb" + text)
+  console.log(t.ADD)
+  return { type: t.ADD, text };
 }
 
 export function deleteTodo(id) {
-  return { type: types.DELETE_TODO, id };
+  return { type: t.DELETE, id };
 }
 
-export function editTodo(id, text) {
-  return { type: types.EDIT_TODO, id, text };
+export function edit(id, text) {
+  return { type: t.EDIT, id, text };
 }
 
-export function completeTodo(id) {
-  return { type: types.COMPLETE_TODO, id };
+export function complete(id) {
+  return { type: t.COMPLETE, id };
 }
 
 export function completeAll() {
-  return { type: types.COMPLETE_ALL };
+  return { type: t.COMPLETE_ALL };
 }
 
 export function clearCompleted() {
-  return { type: types.CLEAR_COMPLETED };
+  return { type: t.CLEAR_COMPLETED };
 }

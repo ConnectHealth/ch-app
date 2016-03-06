@@ -9,6 +9,8 @@ import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
 import CheckBoxIcon from 'material-ui/lib/svg-icons/toggle/check-box';
 import CheckBoxBlankIcon from 'material-ui/lib/svg-icons/toggle/check-box-outline-blank';
 
+import todosfixme from '..';
+
 class TodoItem extends Component {
   constructor(props, context) {
     super(props, context);
@@ -25,13 +27,13 @@ class TodoItem extends Component {
     if (text.length === 0) {
       this.props.deleteTodo(id);
     } else {
-      this.props.editTodo(id, text);
+      this.props.edit(id, text);
     }
     this.setState({ editing: false });
   }
 
   render() {
-    const { todo, completeTodo, deleteTodo } = this.props;
+    const { todo, complete, deleteTodo} = this.props;
 
     const rightIconMenu = (
       <IconMenu iconButtonElement={
@@ -55,11 +57,11 @@ class TodoItem extends Component {
     } else {
       element = (
         <ListItem primaryText={todo.text}
-                  onTouchTap={() => completeTodo(todo.id)}
+                  onTouchTap={() => todosfixme.actions.complete(todo.id)}
                   leftIcon={todo.completed ? <CheckBoxIcon /> : <CheckBoxBlankIcon />}
                   rightIconButton={rightIconMenu}
         />
-      );      
+      );
     }
 
     return (
@@ -75,9 +77,9 @@ class TodoItem extends Component {
 
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
-  editTodo: PropTypes.func.isRequired,
+  edit: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
-  completeTodo: PropTypes.func.isRequired
+  complete: PropTypes.func.isRequired
 };
 
 export default TodoItem;
