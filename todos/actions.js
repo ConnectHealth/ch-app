@@ -1,8 +1,6 @@
-import * as t from '../todos/actionTypes';
+import * as t from './actionTypes';
 
 export function add(text) {
-  console.log("bbbbbbbbbb" + text)
-  console.log(t.ADD)
   return { type: t.ADD, text };
 }
 

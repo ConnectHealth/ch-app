@@ -1,6 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import classnames from 'classnames';
-import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../todos/filters';
 import { RaisedButton, List, ListItem, Divider, Styles } from 'material-ui';
 
 import InboxIcon from 'material-ui/lib/svg-icons/content/inbox';
@@ -9,26 +8,28 @@ import ArchiveIcon from 'material-ui/lib/svg-icons/content/archive';
 
 import MyRawTheme from '../src/material_ui_raw_theme_file';
 
+import { filters } from '../todos'
+
 const palette = Styles.ThemeManager.getMuiTheme(MyRawTheme).baseTheme.palette;
 
 const FILTER_TITLES = {
-  [SHOW_ALL]: 'All',
-  [SHOW_ACTIVE]: 'Active',
-  [SHOW_COMPLETED]: 'Completed'
+  [filters.SHOW_ALL]: 'All',
+  [filters.SHOW_ACTIVE]: 'Active',
+  [filters.SHOW_COMPLETED]: 'Completed'
 };
 
 const FILTER_ICONS = {
-  [SHOW_ALL]: <InboxIcon />,
-  [SHOW_ACTIVE]: <LoopIcon />,
-  [SHOW_COMPLETED]: <ArchiveIcon />
+  [filters.SHOW_ALL]: <InboxIcon />,
+  [filters.SHOW_ACTIVE]: <LoopIcon />,
+  [filters.SHOW_COMPLETED]: <ArchiveIcon />
 };
 
 class Footer extends Component {
   getCountForFilter(filter) {
     const { activeCount, completedCount } = this.props;
-    if (filter === SHOW_ALL) return activeCount + completedCount;
-    if (filter === SHOW_ACTIVE) return activeCount;
-    if (filter === SHOW_COMPLETED) return completedCount;
+    if (filter === filters.SHOW_ALL) return activeCount + completedCount;
+    if (filter === filters.SHOW_ACTIVE) return activeCount;
+    if (filter === filters.SHOW_COMPLETED) return completedCount;
   }
 
   renderFilterLink(filter) {
@@ -62,7 +63,7 @@ class Footer extends Component {
       <footer className="footer">
         <Divider style={{marginTop: 10}}/>
         <List className="filters">
-        {[SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED].map(filter =>
+        {[filters.SHOW_ALL, filters.SHOW_ACTIVE, filters.SHOW_COMPLETED].map(filter =>
           this.renderFilterLink(filter)
         )}
         </List>

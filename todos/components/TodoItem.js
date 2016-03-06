@@ -9,8 +9,6 @@ import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
 import CheckBoxIcon from 'material-ui/lib/svg-icons/toggle/check-box';
 import CheckBoxBlankIcon from 'material-ui/lib/svg-icons/toggle/check-box-outline-blank';
 
-import todosfixme from '..';
-
 class TodoItem extends Component {
   constructor(props, context) {
     super(props, context);
@@ -57,7 +55,7 @@ class TodoItem extends Component {
     } else {
       element = (
         <ListItem primaryText={todo.text}
-                  onTouchTap={() => todosfixme.actions.complete(todo.id)}
+                  onTouchTap={() => complete(todo.id)}
                   leftIcon={todo.completed ? <CheckBoxIcon /> : <CheckBoxBlankIcon />}
                   rightIconButton={rightIconMenu}
         />

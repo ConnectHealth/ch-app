@@ -9,7 +9,6 @@ const initialState = [{
 export default function todos(state = initialState, action) {
   switch (action.type) {
   case t.ADD:
-    console.log("gggggggggggggggg")
     return [{
       id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
       completed: false,
@@ -45,7 +44,6 @@ export default function todos(state = initialState, action) {
     return state.filter(todo => todo.completed === false);
 
   default:
-    console.log("qqqqqqqqqqqq")
     return state;
   }
 }

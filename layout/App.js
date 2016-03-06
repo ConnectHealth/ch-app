@@ -3,39 +3,35 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Header from './Header';
-import MainSection from '../layout/MainSection';
-// import * as TodoActions from '../todos/actions';
-import todosfixme from '../todos';
-console.log(todosfixme.actions)
-console.log('ddddddddddddddddddddd')
+import MainSection from './MainSection';
+import todos from '../todos';
 
 class App extends Component {
   render() {
-    const { todos, actions } = this.props;
+    const { todosData, actions } = this.props;
     return (
       <div>
-        <Header add={todosfixme.actions.add} />
-        <MainSection todos={todos} actions={actions} />
+        <Header add={actions.add} />
+        <MainSection todosData={todosData} actions={actions} />
       </div>
     );
   }
 }
 
-
 App.propTypes = {
-  todos: PropTypes.array.isRequired,
+  todosData: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    todos: state.todos
+    todosData: state.todos
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(todosfixme.actions, dispatch)
+    actions: bindActionCreators(todos.actions, dispatch)
   };
 }
 

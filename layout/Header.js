@@ -1,6 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-// import TodoTextInput from '../todos/components/TodoTextInput';
-import { TodoTextInput } from '../todos'
+import TodoTextInput from '../todos/components/TodoTextInput';
 
 import mui, {AppBar, Styles} from 'material-ui';
 import MyRawTheme from '../src/material_ui_raw_theme_file';
