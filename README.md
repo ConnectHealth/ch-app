@@ -1,5 +1,4 @@
-# react-redux-material_ui-boilerplate
-A boilerplate for React + Redux + Material UI + ES6 syntax applications. This boilerplate includes following tools and frameworks.
+# WIP
 
 * [React](https://facebook.github.io/react/)
 * [Redux](http://rackt.org/redux/index.html)
@@ -10,16 +9,6 @@ A boilerplate for React + Redux + Material UI + ES6 syntax applications. This bo
 
 
 # Usage
-## Preparation
-```bash
-$ git clone https://github.com/takanabe/react-redux-material_ui-boilerplate.git
-$ mv react-redux-material_ui-boilerplate [YOUR_APPNAME]
-$ cd [YOUR_APPNAME]
-$ rm -rf .git
-$ git init
-$ git add -A
-$ git commit -m "Initial commit with boilerplate"
-```
 
 ## Package installation
 ```bash
