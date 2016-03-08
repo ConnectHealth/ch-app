@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-material_ui-boilerplate",
-  "version": "1.0.0",
-  "description": "A boilerplate for React + Redux + Material UI + ES6 syntax application",
+  "name": "ch app",
+  "version": "0.1.0",
+  "description": "playground",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,21 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/ConnectHealth/ch-app"
   },
   "keywords": [
-    "React",
-    "webpack",
-    "Redux",
-    "Bable",
-    "ES6"
   ],
-  "author": "https://github.com/takanabe",
+  "author": "https://github.com/kalmanb",
   "license": "Apache 2",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/ConnectHealth/ch-app/issues"
   },
-  "homepage": "",
+  "homepage": "http://connecthealth.co.nz/",
   "devDependencies": {
     "babel-core": "^5.8.25",
     "babel-eslint": "^4.1.3",
