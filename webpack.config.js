@@ -18,7 +18,17 @@ module.exports = {
     loaders: [
       { test: /\.html$/, loader: "file?name=[name].[ext]" },
       { test: /\.css$/, loader: "file?name=[name].[ext]" },
-      { test: /\.(js|jsx)$/, exclude: /node_modules/, loaders: ["react-hot","babel-loader?stage=0&optional=runtime"]},
+      // { test: /\.(js|jsx)$/, exclude: /node_modules/, loaders: ["react-hot","babel-loader?stage=0&optional=runtime"]},
+      {
+        test: /\.js$/,
+        loader: 'babel',
+        exclude: /node_modules/,
+        query: {
+          // https://github.com/babel/babel-loader#options
+          cacheDirectory: true,
+          presets: ['es2015', 'react', 'stage-2']
+        }
+      }
     ],
   },
   resolve: {
