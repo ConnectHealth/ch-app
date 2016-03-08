@@ -1,37 +1,37 @@
-import React, { Component, PropTypes } from 'react';
-import classnames from 'classnames';
-import TodoTextInput from './TodoTextInput';
-import { ListItem, IconButton, Styles } from 'material-ui';
-import IconMenu from 'material-ui/lib/menus/icon-menu';
-import MenuItem from 'material-ui/lib/menus/menu-item';
+import React, { Component, PropTypes } from 'react'
+import classnames from 'classnames'
+import TodoTextInput from './TodoTextInput'
+import { ListItem, IconButton, Styles } from 'material-ui'
+import IconMenu from 'material-ui/lib/menus/icon-menu'
+import MenuItem from 'material-ui/lib/menus/menu-item'
 
-import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
-import CheckBoxIcon from 'material-ui/lib/svg-icons/toggle/check-box';
-import CheckBoxBlankIcon from 'material-ui/lib/svg-icons/toggle/check-box-outline-blank';
+import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert'
+import CheckBoxIcon from 'material-ui/lib/svg-icons/toggle/check-box'
+import CheckBoxBlankIcon from 'material-ui/lib/svg-icons/toggle/check-box-outline-blank'
 
 class TodoItem extends Component {
   constructor(props, context) {
-    super(props, context);
+    super(props, context)
     this.state = {
       editing: false
-    };
+    }
   }
 
   handleEdit () {
-    this.setState({ editing: true });
+    this.setState({ editing: true })
   }
 
   handleSave(id, text) {
     if (text.length === 0) {
-      this.props.deleteTodo(id);
+      this.props.deleteTodo(id)
     } else {
-      this.props.edit(id, text);
+      this.props.edit(id, text)
     }
-    this.setState({ editing: false });
+    this.setState({ editing: false })
   }
 
   render() {
-    const { todo, complete, deleteTodo} = this.props;
+    const { todo, complete, deleteTodo} = this.props
 
     const rightIconMenu = (
       <IconMenu iconButtonElement={
@@ -43,23 +43,23 @@ class TodoItem extends Component {
         <MenuItem primaryText="Edit" onTouchTap={this.handleEdit.bind(this)}/>
         <MenuItem primaryText="Delete" onTouchTap={() => deleteTodo(todo.id)}/>
       </IconMenu>
-    );
+    )
 
-    let element;
+    let element
     if (this.state.editing) {
       element = (
         <TodoTextInput text={todo.text}
-                      editing={this.state.editing}
-                      onSave={(text) => this.handleSave(todo.id, text)} />
-      );
+          editing={this.state.editing}
+          onSave={(text) => this.handleSave(todo.id, text)} />
+      )
     } else {
       element = (
         <ListItem primaryText={todo.text}
-                  onTouchTap={() => complete(todo.id)}
-                  leftIcon={todo.completed ? <CheckBoxIcon /> : <CheckBoxBlankIcon />}
-                  rightIconButton={rightIconMenu}
+          onTouchTap={() => complete(todo.id)}
+          leftIcon={todo.completed ? <CheckBoxIcon /> : <CheckBoxBlankIcon />}
+          rightIconButton={rightIconMenu}
         />
-      );
+      )
     }
 
     return (
@@ -69,7 +69,7 @@ class TodoItem extends Component {
         })}>
         {element}
       </div>
-    );
+    )
   }
 }
 
@@ -78,6 +78,6 @@ TodoItem.propTypes = {
   edit: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
   complete: PropTypes.func.isRequired
-};
+}
 
-export default TodoItem;
+export default TodoItem

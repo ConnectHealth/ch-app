@@ -1,7 +1,7 @@
 module.exports = {
   context: __dirname + "/src",
   entry: {
-    jsx: "./index.jsx",
+    jsx: "./index.js",
     css: "./main.css",
     html: "./index.html",
   },
@@ -27,4 +27,4 @@ module.exports = {
   eslint: {
     configFile: './.eslintrc'
   },
-};
+}

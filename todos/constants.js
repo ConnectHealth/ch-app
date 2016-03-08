@@ -1,2 +1,2 @@
 
-export const NAME = 'todos';
+export const NAME = 'todos'

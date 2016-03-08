@@ -1,6 +1,6 @@
-import Colors from 'material-ui/lib/styles/colors';
-import ColorManipulator from 'material-ui/lib/utils/color-manipulator';
-import Spacing from 'material-ui/lib/styles/spacing';
+import Colors from 'material-ui/lib/styles/colors'
+import ColorManipulator from 'material-ui/lib/utils/color-manipulator'
+import Spacing from 'material-ui/lib/styles/spacing'
 
 module.exports = {
   spacing: Spacing,
@@ -18,4 +18,4 @@ module.exports = {
     borderColor: Colors.grey300,
     disabledColor: ColorManipulator.fade(Colors.darkBlack, 0.3)
   }
-};
+}
