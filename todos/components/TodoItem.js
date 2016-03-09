@@ -10,7 +10,7 @@ import CheckBoxIcon from 'material-ui/lib/svg-icons/toggle/check-box'
 import CheckBoxBlankIcon from 'material-ui/lib/svg-icons/toggle/check-box-outline-blank'
 
 class TodoItem extends Component {
-  constructor(props, context) {
+  constructor (props, context) {
     super(props, context)
     this.state = {
       editing: false
@@ -21,7 +21,7 @@ class TodoItem extends Component {
     this.setState({ editing: true })
   }
 
-  handleSave(id, text) {
+  handleSave (id, text) {
     if (text.length === 0) {
       this.props.deleteTodo(id)
     } else {
@@ -30,45 +30,40 @@ class TodoItem extends Component {
     this.setState({ editing: false })
   }
 
-  render() {
+  render () {
     const { todo, complete, deleteTodo} = this.props
 
     const rightIconMenu = (
-      <IconMenu iconButtonElement={
-          <IconButton>
-            <MoreVertIcon color={Styles.Colors.grey400} />
-          </IconButton>
-        }
-      >
-        <MenuItem primaryText="Edit" onTouchTap={this.handleEdit.bind(this)}/>
-        <MenuItem primaryText="Delete" onTouchTap={() => deleteTodo(todo.id)}/>
-      </IconMenu>
+    <IconMenu iconButtonElement={<IconButton>
+                               <MoreVertIcon color={Styles.Colors.grey400} />
+                             </IconButton>}>
+      <MenuItem primaryText="Edit" onTouchTap={this.handleEdit.bind(this)} />
+      <MenuItem primaryText="Delete" onTouchTap={() => deleteTodo(todo.id)} />
+    </IconMenu>
     )
 
     let element
     if (this.state.editing) {
       element = (
-        <TodoTextInput text={todo.text}
-          editing={this.state.editing}
-          onSave={(text) => this.handleSave(todo.id, text)} />
+        <TodoTextInput text={todo.text} editing={this.state.editing} onSave={(text) => this.handleSave(todo.id, text)} />
       )
     } else {
       element = (
-        <ListItem primaryText={todo.text}
+        <ListItem
+          primaryText={todo.text}
           onTouchTap={() => complete(todo.id)}
           leftIcon={todo.completed ? <CheckBoxIcon /> : <CheckBoxBlankIcon />}
-          rightIconButton={rightIconMenu}
-        />
+          rightIconButton={rightIconMenu} />
       )
     }
 
     return (
-      <div className={classnames({
-          completed: todo.completed,
-          editing: this.state.editing
-        })}>
-        {element}
-      </div>
+    <div className={classnames({
+                  completed: todo.completed,
+                  editing: this.state.editing
+                })}>
+      {element}
+    </div>
     )
   }
 }

@@ -7,14 +7,14 @@ const defaultStyle = {
 }
 
 class TodoTextInput extends Component {
-  constructor(props, context) {
+  constructor (props, context) {
     super(props, context)
     this.state = {
       text: this.props.text || ''
     }
   }
 
-  handleEnter(e) {
+  handleEnter (e) {
     const text = e.target.value.trim()
     this.props.onSave(text)
     if (this.props.newTodo) {
@@ -22,31 +22,31 @@ class TodoTextInput extends Component {
     }
   }
 
-  handleChange(e) {
+  handleChange (e) {
     this.setState({ text: e.target.value })
   }
 
-  handleBlur(e) {
+  handleBlur (e) {
     if (!this.props.newTodo) {
       this.props.onSave(e.target.value)
     }
   }
 
-  render() {
+  render () {
     return (
-      <TextField className={
-        classnames({
-          edit: this.props.editing,
-          'new-todo': this.props.newTodo
-        })}
-        style={defaultStyle}
-        type="text"
-        hintText={this.props.placeholder}
-        autoFocus="true"
-        value={this.state.text}
-        onBlur={this.handleBlur.bind(this)}
-        onChange={this.handleChange.bind(this)}
-        onEnterKeyDown={this.handleEnter.bind(this)} />
+    <TextField
+      className={classnames({
+                   edit: this.props.editing,
+                   'new-todo': this.props.newTodo
+                 })}
+      style={defaultStyle}
+      type="text"
+      hintText={this.props.placeholder}
+      autoFocus="true"
+      value={this.state.text}
+      onBlur={this.handleBlur.bind(this)}
+      onChange={this.handleChange.bind(this)}
+      onEnterKeyDown={this.handleEnter.bind(this)} />
     )
   }
 }

@@ -26,50 +26,52 @@ const FILTER_ICONS = {
 }
 
 class Footer extends Component {
-  getCountForFilter(filter) {
+  getCountForFilter (filter) {
     const { activeCount, completedCount } = this.props
     if (filter === filters.SHOW_ALL) return activeCount + completedCount
     if (filter === filters.SHOW_ACTIVE) return activeCount
     if (filter === filters.SHOW_COMPLETED) return completedCount
   }
 
-  renderFilterLink(filter) {
+  renderFilterLink (filter) {
     const title = FILTER_TITLES[filter]
     const { filter: selectedFilter, onShow } = this.props
     const active = filter === selectedFilter
     const count = this.getCountForFilter(filter)
     return (
-      <ListItem key={filter} className={classnames({ selected: active })}
-                style={{color: active ? palette.primary1Color: palette.textColor}}
-                primaryText={title + (count > 0 ? ' (' +  count + ')' : '')}
-                leftIcon={FILTER_ICONS[filter]}
-                onTouchTap={() => onShow(filter)} />
+    <ListItem
+      key={filter}
+      className={classnames({ selected: active })}
+      style={{color: active ? palette.primary1Color : palette.textColor}}
+      primaryText={title + (count > 0 ? ' (' + count + ')' : '')}
+      leftIcon={FILTER_ICONS[filter]}
+      onTouchTap={() => onShow(filter)} />
     )
   }
 
-  renderClearButton() {
+  renderClearButton () {
     const { completedCount, onClearCompleted } = this.props
     if (completedCount > 0) {
       return (
-        <RaisedButton className="clear-completed"
-                      primary={true}
-                      label="Clear completed"
-                      onClick={onClearCompleted} />
+      <RaisedButton
+        className="clear-completed"
+        primary={true}
+        label="Clear completed"
+        onClick={onClearCompleted} />
       )
     }
   }
 
-  render() {
+  render () {
     return (
-      <footer className="footer">
-        <Divider style={{marginTop: 10}}/>
-        <List className="filters">
-        {[filters.SHOW_ALL, filters.SHOW_ACTIVE, filters.SHOW_COMPLETED].map(filter =>
-          this.renderFilterLink(filter)
-        )}
-        </List>
-        {this.renderClearButton()}
-      </footer>
+    <footer className="footer">
+      <Divider style={{marginTop: 10}} />
+      <List className="filters">
+        {[filters.SHOW_ALL, filters.SHOW_ACTIVE, filters.SHOW_COMPLETED].map(filter => this.renderFilterLink(filter)
+         )}
+      </List>
+      {this.renderClearButton()}
+    </footer>
     )
   }
 }

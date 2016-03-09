@@ -1,4 +1,3 @@
-
 import * as actions from './actions'
 import * as constants from './constants'
 import * as filters from './filters'
@@ -14,5 +13,4 @@ export default {
   filters,
   reducer,
   TodoItem,
-  TodoTextInput
-}
+TodoTextInput}
