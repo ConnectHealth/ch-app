@@ -4,9 +4,9 @@
   "description": "playground",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --hot --inline --progress --colors",
-    "build": "webpack --progress --colors"
+    "build": "webpack --progress --colors",
+    "test": "standard-format -w"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,8 @@
     "style-loader": "^0.13.0",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1",
-    "webpack-hot-middleware": "^2.9.1"
+    "webpack-hot-middleware": "^2.9.1",
+    "standard-format": "^2.1.1"
   },
   "dependencies": {
     "classnames": "^2.1.2",
