@@ -13,7 +13,13 @@ module.exports = {
   module: {
     preLoaders: [
       // Eslint loader
-      { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'eslint-loader'},
+      // { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'eslint-loader'},
+      {
+        // set up standard-loader as a preloader
+        test: /\.js?$/,
+        loader: 'standard',
+        exclude: /(node_modules|bower_components)/
+      }
     ],
     loaders: [
       { test: /\.html$/, loader: 'file?name=[name].[ext]' },
@@ -30,7 +36,10 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
-  eslint: {
-    configFile: './.eslintrc'
-  },
+  standard: {
+    parser: 'babel-eslint'
+  }
+// eslint: {
+//   configFile: './.eslintrc'
+// },
 }

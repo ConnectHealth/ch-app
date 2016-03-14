@@ -38,6 +38,7 @@ class Footer extends Component {
     const { filter: selectedFilter, onShow } = this.props
     const active = filter === selectedFilter
     const count = this.getCountForFilter(filter)
+    const onTouchTap = () => onShow(filter)
     return (
     <ListItem
       key={filter}
@@ -45,7 +46,7 @@ class Footer extends Component {
       style={{color: active ? palette.primary1Color : palette.textColor}}
       primaryText={title + (count > 0 ? ' (' + count + ')' : '')}
       leftIcon={FILTER_ICONS[filter]}
-      onTouchTap={() => onShow(filter)} />
+      onTouchTap={onTouchTap} />
     )
   }
 
@@ -54,21 +55,21 @@ class Footer extends Component {
     if (completedCount > 0) {
       return (
       <RaisedButton
-        className="clear-completed"
-        primary={true}
-        label="Clear completed"
+        className='clear-completed'
+        primary
+        label='Clear completed'
         onClick={onClearCompleted} />
       )
     }
   }
 
   render () {
+    const filterFn = [filters.SHOW_ALL, filters.SHOW_ACTIVE, filters.SHOW_COMPLETED].map((filter) => this.renderFilterLink(filter))
     return (
-    <footer className="footer">
+    <footer className='footer'>
       <Divider style={{marginTop: 10}} />
-      <List className="filters">
-        {[filters.SHOW_ALL, filters.SHOW_ACTIVE, filters.SHOW_COMPLETED].map(filter => this.renderFilterLink(filter)
-         )}
+      <List className='filters'>
+        {filterFn}
       </List>
       {this.renderClearButton()}
     </footer>

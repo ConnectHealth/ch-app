@@ -33,25 +33,28 @@ class TodoItem extends Component {
   render () {
     const { todo, complete, deleteTodo} = this.props
 
+    const deleteFn = () => deleteTodo(todo.id)
     const rightIconMenu = (
     <IconMenu iconButtonElement={<IconButton>
                                <MoreVertIcon color={Styles.Colors.grey400} />
                              </IconButton>}>
-      <MenuItem primaryText="Edit" onTouchTap={this.handleEdit.bind(this)} />
-      <MenuItem primaryText="Delete" onTouchTap={() => deleteTodo(todo.id)} />
+      <MenuItem primaryText='Edit' onTouchTap={this.handleEdit.bind(this)} />
+      <MenuItem primaryText='Delete' onTouchTap={deleteFn} />
     </IconMenu>
     )
 
+    const onSave = (text) => this.handleSave(todo.id, text)
     let element
     if (this.state.editing) {
       element = (
-        <TodoTextInput text={todo.text} editing={this.state.editing} onSave={(text) => this.handleSave(todo.id, text)} />
+        <TodoTextInput text={todo.text} editing={this.state.editing} onSave={onSave} />
       )
     } else {
+      const onTouchTap = () => complete(todo.id)
       element = (
         <ListItem
           primaryText={todo.text}
-          onTouchTap={() => complete(todo.id)}
+          onTouchTap={onTouchTap}
           leftIcon={todo.completed ? <CheckBoxIcon /> : <CheckBoxBlankIcon />}
           rightIconButton={rightIconMenu} />
       )
