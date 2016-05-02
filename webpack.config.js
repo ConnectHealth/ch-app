@@ -5,6 +5,8 @@ module.exports = {
     css: './main.css',
     html: './index.html',
   },
+  debug: true,
+  devtool: 'source-map',
 
   output: {
     path: __dirname + '/static',
@@ -14,12 +16,6 @@ module.exports = {
     preLoaders: [
       // Eslint loader
       // { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'eslint-loader'},
-      {
-        // set up standard-loader as a preloader
-        test: /\.js?$/,
-        loader: 'standard',
-        exclude: /(node_modules|bower_components)/
-      }
     ],
     loaders: [
       { test: /\.html$/, loader: 'file?name=[name].[ext]' },
@@ -36,9 +32,9 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
-  standard: {
-    parser: 'babel-eslint'
-  }
+  // standard: {
+  //   parser: 'babel-eslint'
+  // }
 // eslint: {
 //   configFile: './.eslintrc'
 // },

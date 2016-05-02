@@ -1,11 +1,17 @@
+[![Build Status](https://travis-ci.org/movio/movio-todomvc.svg?branch=master)](https://travis-ci.org/movio/movio-todomvc)
+
 # WIP
 
 * [React](https://facebook.github.io/react/)
 * [Redux](http://rackt.org/redux/index.html)
+* [Immutable](https://facebook.github.io/immutable-js/)
 * [Material UI](http://material-ui.com/#/)
 * [webpack](https://webpack.github.io/)
 * [Babel](https://babeljs.io/)
 * [ESLint](http://eslint.org/)
+* [redux-saga](https://github.com/yelouafi/redux-saga)
+* [superagent](https://visionmedia.github.io/superagent/)
+
 
 
 # Usage
@@ -22,7 +28,26 @@ For development server, webpack-dev-server is reasonable. It monitors update fil
 $ npm start
 ```
 
-Becareful! the webpack-dev-server rebuild files in `src` automatically but the bundled files are just placed on its memory. Build manually by allowing next section(Build assets), if you want need the bundled files.
+Be careful! the webpack-dev-server rebuild files in `src` automatically but the bundled files are just placed on its memory. Build manually by allowing next section(Build assets), if you want need the bundled files.
+
+## Standards
+Testing
+
+    $ npm test
+    # or
+    $ npm run test:watch
+
+Check styles before making a PR
+
+    $ npm run lint
+
+Auto formatting
+
+    $ npm run format
+    
+Ready for PR - runs tests and linting
+
+    $ npm run check
 
 
 ## Build assets
