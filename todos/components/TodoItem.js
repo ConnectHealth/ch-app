@@ -55,6 +55,7 @@ class TodoItem extends Component {
         <ListItem
           primaryText={todo.text}
           onTouchTap={onTouchTap}
+          onClick={onTouchTap}
           leftIcon={todo.completed ? <CheckBoxIcon /> : <CheckBoxBlankIcon />}
           rightIconButton={rightIconMenu} />
       )

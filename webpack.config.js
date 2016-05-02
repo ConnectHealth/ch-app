@@ -29,7 +29,7 @@ module.exports = {
         exclude: /node_modules/,
         loaders: [
           'react-hot',
-          'babel?presets[]=react,presets[]=es2015,presets[]=stage-2&cacheDirectory=true']
+          'babel?presets[]=movio&cacheDirectory=true']
       },
     ],
   },
