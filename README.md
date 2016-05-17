@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ConnectHealth/ch-app.svg?branch=master)](https://travis-ci.org/ConnectHealth/ch-app)
+
 # WIP
 
 * [React](https://facebook.github.io/react/)
