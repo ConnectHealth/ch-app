@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/movio/movio-todomvc.svg?branch=master)](https://travis-ci.org/movio/movio-todomvc)
-
 # WIP
 
 * [React](https://facebook.github.io/react/)

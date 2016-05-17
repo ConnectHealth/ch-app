@@ -1,7 +1,7 @@
 {
-  "name": "movio-todomvc",
+  "name": "ch-app",
   "version": "0.1.0",
-  "description": "Movio's TodoMVC stack",
+  "description": "CH App",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot --inline --progress --colors --host 0.0.0.0",
@@ -14,20 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/movio/movio-todomvc"
+    "url": "https://github.com/connecthealh/ch-app"
   },
   "keywords": [
-    "movio",
-    "todomvc"
   ],
   "contributors": [
     {
       "name": "Kalman Bekesi",
       "url": "https://github.com/kalmanb"
-    },
-    {
-      "name": "Raghuvir Kasturi",
-      "url": "https://github.com/d4ncer"
     }
   ],
   "license": "MIT",

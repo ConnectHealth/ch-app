@@ -1,5 +1,5 @@
-import todos from '../todos';
-const { sagas } = todos;
+import patients from '../patients';
+const { sagas } = patients;
 
 const allSagas = [].concat(
   sagas

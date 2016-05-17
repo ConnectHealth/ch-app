@@ -7,14 +7,14 @@ import { actionTypes as actions } from './constants';
 // TODO - move this to api.js
 const getRequest = () => new Promise((resolve) => {
   const response = {
-    todos: [
+    patients: [
       {
-        text: 'Use Redux',
-        completed: false,
+        firstName: 'John',
+        lastName: 'Smith',
       },
       {
-        text: 'Use Saga',
-        completed: false,
+        firstName: 'Sarah',
+        lastName: 'Brown',
       },
     ],
   };
@@ -25,22 +25,22 @@ const getRequest = () => new Promise((resolve) => {
   }, Math.random() * 1000);
 });
 
-function * getTodos() {
+function * getPatients() {
   try {
-    yield put({ type: actions.FETCHING });
-    const { todos } = yield call(getRequest);
-    yield put({ type: actions.FETCH_SUCCESS, todos });
+    yield put({ type: actions.SEARCHING });
+    const { patients } = yield call(getRequest);
+    yield put({ type: actions.SEARCH_SUCCESS, patients });
   } catch (error) {
-    yield put({ type: actions.FETCH_ERROR, error });
+    yield put({ type: actions.SEARCH_ERROR, error });
   }
 }
 
-// Fetch todos whenever receive a FETCH action
-function * watchTodos() {
-  yield* takeEvery(actions.FETCH, getTodos);
+// Search Patients whenever receive a SEARCH action
+function * watchPatients() {
+  yield* takeEvery(actions.SEARCH, getPatients);
 }
 
 export default [
-  watchTodos,
+  watchPatients,
 ];
 

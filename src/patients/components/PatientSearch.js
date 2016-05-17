@@ -1,12 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-import classnames from 'classnames';
 import { TextField } from 'material-ui';
 
 const defaultStyle = {
   marginLeft: 20,
 };
 
-class TodoTextInput extends Component {
+class PatientSearch extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -20,10 +19,8 @@ class TodoTextInput extends Component {
   handleEnter(e) {
     if (e.keyCode === 13) { // on enter
       const text = e.target.value.trim();
-      this.props.onSave(text);
-      if (this.props.newTodo) {
-        this.setState({ text: '' });
-      }
+      this.props.onSearch(text);
+      this.setState({ text: '' });
     }
   }
 
@@ -32,18 +29,12 @@ class TodoTextInput extends Component {
   }
 
   handleBlur(e) {
-    if (!this.props.newTodo) {
-      this.props.onSave(e.target.value);
-    }
+    this.props.onSearch(e.target.value);
   }
 
   render() {
     return (
       <TextField
-        className={classnames({
-          edit: this.props.editing,
-          'new-todo': this.props.newTodo,
-        })}
         style={defaultStyle}
         type="text"
         hintText={this.props.placeholder}
@@ -57,12 +48,10 @@ class TodoTextInput extends Component {
   }
 }
 
-TodoTextInput.propTypes = {
-  onSave: PropTypes.func.isRequired,
+PatientSearch.propTypes = {
+  onSearch: PropTypes.func.isRequired,
   text: PropTypes.string,
   placeholder: PropTypes.string,
-  editing: PropTypes.bool,
-  newTodo: PropTypes.bool,
 };
 
-export default TodoTextInput;
+export default PatientSearch;
