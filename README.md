@@ -26,6 +26,7 @@ For development server, webpack-dev-server is reasonable. It monitors update fil
 
 ```bash
 $ npm start
+http://localhost:8080/carte-blanche
 ```
 
 Be careful! the webpack-dev-server rebuild files in `src` automatically but the bundled files are just placed on its memory. Build manually by allowing next section(Build assets), if you want need the bundled files.

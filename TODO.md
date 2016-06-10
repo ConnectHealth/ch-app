@@ -1,8 +1,9 @@
 
-* re-select
+* https://github.com/carteb/carte-blanche
+* refresh code
 * https://github.com/acdlite/flux-standard-action
-* https://github.com/feross/eslint-config-standard-react
-* TESTS
-* superagent ?
+* re-select
 * immutable
 * firebase
+  * superagent ?
+* TESTS
