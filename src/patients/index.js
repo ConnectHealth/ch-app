@@ -1,5 +1,4 @@
-import { NAME, actionTypes } from './constants';
-import * as actions from './actions';
+import { actions, actionTypes } from './actions';
 import reducer from './reducer';
 import sagas from './sagas';
 
@@ -7,8 +6,10 @@ import sagas from './sagas';
 // import * as selectors from './selectors'
 import MainSection from './components/MainSection';
 
+export const name = 'patients';
+
 export default {
-  NAME,
+  name,
   actionTypes,
   actions,
   reducer,

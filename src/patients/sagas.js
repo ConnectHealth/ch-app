@@ -2,7 +2,7 @@ import { takeEvery } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 // import * as request from 'superagent';
 
-import { actionTypes as actions } from './constants';
+import { actionTypes as actions } from './actions';
 
 // TODO - move this to api.js
 const getRequest = () => new Promise((resolve) => {

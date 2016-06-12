@@ -1,4 +1,4 @@
-import { actionTypes as t } from './constants';
+import { actionTypes as t } from './actions';
 import { OrderedMap } from 'immutable';
 
 const uuid = () => Math.floor(Math.random() * 100000);

@@ -14,7 +14,7 @@ const ROOT_PATH = path.resolve(__dirname);
 
 module.exports = {
   debug: true,
-  entry: ['webpack-dev-server/client?http://localhost:3000/', 'webpack/hot/only-dev-server', path.resolve(ROOT_PATH, 'src')],
+  entry: ['webpack-dev-server/client?http://localhost:8080/', 'webpack/hot/only-dev-server', path.resolve(ROOT_PATH, 'src')],
   output: {
     publicPath: '/',
     path: path.resolve(ROOT_PATH, 'build.dev'),
@@ -56,13 +56,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: path.resolve(ROOT_PATH, 'src/index.html'),
-    }),
-    new CarteBlanche({
-      componentRoot: 'src',
-      filter: /(\/[A-Z][a-zA-Z]*.?\/index|\/[A-Z][a-zA-Z]*)\.(jsx?|es6|react\.jsx?)$/,
-      plugins: [
-        new ReactPlugin(),
-      ]
     })
+    // Error with default props for muiTheme
+    // new CarteBlanche({
+    //   componentRoot: 'src',
+    //   filter: /(\/[A-Z][a-zA-Z]*.?\/index|\/[A-Z][a-zA-Z]*)\.(jsx?|es6|react\.jsx?)$/,
+    //   plugins: [
+    //     new ReactPlugin(),
+    //   ]
+    // })
   ],
 };

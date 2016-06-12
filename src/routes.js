@@ -1,9 +1,8 @@
 import React from 'react';
 import { IndexRoute, Route } from 'react-router';
-import App from './layout/App';
+import App from './app/App';
 
 import patients from './patients';
-// import patient from './patient';
 
 const routes = (
   <Route path="/" component={App}>

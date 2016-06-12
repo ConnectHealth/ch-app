@@ -1,9 +1,9 @@
 import React, { PropTypes, Component } from 'react';
-import { AppBar } from 'material-ui';
 
 import PatientSearch from './PatientSearch.js';
 
 class Header extends Component {
+
   constructor(props, context) {
     super(props, context);
     this.handleSearch = this.handleSearch.bind(this);
@@ -18,7 +18,6 @@ class Header extends Component {
   render() {
     return (
       <header className="header">
-        <AppBar title="Patients" />
         <PatientSearch
           onSearch={this.handleSearch}
           text=""

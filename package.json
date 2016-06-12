@@ -4,7 +4,7 @@
   "description": "CH App",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline --progress --colors --host 0.0.0.0",
+    "start": "webpack-dev-server --hot --inline --colors --host 0.0.0.0",
     "build": "webpack --progress --colors",
     "test": "karma start --single-run; exit 0",
     "test:ci": "karma start --single-run",

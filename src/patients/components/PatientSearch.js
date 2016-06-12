@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { TextField } from 'material-ui';
+import TextField from 'material-ui/TextField';
 
 const defaultStyle = {
   marginLeft: 20,
@@ -35,8 +35,8 @@ class PatientSearch extends Component {
   render() {
     return (
       <TextField
-        style={defaultStyle}
         type="text"
+        style={defaultStyle}
         hintText={this.props.placeholder}
         autoFocus="true"
         value={this.state.text}

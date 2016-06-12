@@ -1,13 +1,26 @@
-import { actionTypes as t } from './constants';
+// fixme naming
+export const actionTypes = {
+  CREATE: 'patients/CREATE',
+  SEARCH: 'patients/SEARCH',
+  SEARCHING: 'patients/SEARCHING',
+  SEARCH_SUCCESS: 'patients/SEARCH_SUCCESS',
+  SEARCH_ERROR: 'patients/SEARCH_ERROR',
+};
 
-export function create(text) {
-  return { type: t.CREATE, text };
+function create(text) {
+  return { type: actionTypes.CREATE, text };
 }
 
-export function edit(id, text) {
-  return { type: t.EDIT, id, text };
+function edit(id, text) {
+  return { type: actionTypes.EDIT, id, text };
 }
 
-export function search() {
-  return { type: t.SEARCH };
+function search() {
+  return { type: actionTypes.SEARCH };
 }
+
+export const actions = {
+  create,
+  edit,
+  search,
+};
