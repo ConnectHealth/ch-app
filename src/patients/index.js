@@ -1,4 +1,5 @@
-import { actions, actionTypes } from './actions';
+// @flow
+import { actions } from './actions';
 import reducer from './reducer';
 import sagas from './sagas';
 
@@ -10,7 +11,6 @@ export const name = 'patients';
 
 export default {
   name,
-  actionTypes,
   actions,
   reducer,
   sagas,

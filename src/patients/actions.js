@@ -1,26 +1,19 @@
-// fixme naming
-export const actionTypes = {
-  CREATE: 'patients/CREATE',
-  SEARCH: 'patients/SEARCH',
-  SEARCHING: 'patients/SEARCHING',
-  SEARCH_SUCCESS: 'patients/SEARCH_SUCCESS',
-  SEARCH_ERROR: 'patients/SEARCH_ERROR',
-};
+// @flow
+export type Patient = string;
 
-function create(text) {
-  return { type: actionTypes.CREATE, text };
-}
+export type Action =
+    { type: 'CREATE', patient: Patient }
+  | { type: 'SEARCH' }
+  | { type: 'SEARCHING' }
+  | { type: 'SEARCH_SUCCESS', patients: Array<Patient>}
+  | { type: 'SEARCH_ERROR' }
+  ;
 
-function edit(id, text) {
-  return { type: actionTypes.EDIT, id, text };
-}
+const create = (patient: string): Action => ({ type: 'CREATE', patient });
 
-function search() {
-  return { type: actionTypes.SEARCH };
-}
+const search = (): Action => ({ type: 'SEARCH' });
 
 export const actions = {
   create,
-  edit,
   search,
 };

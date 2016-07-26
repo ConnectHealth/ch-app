@@ -1,11 +1,10 @@
+// @flow
 import { takeEvery } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
-// import * as request from 'superagent';
 
-import { actionTypes as actions } from './actions';
+// import { actionTypes as actions } from './actions';
 
-// TODO - move this to api.js
-const getRequest = () => new Promise((resolve) => {
+const api = () => new Promise((resolve) => {
   const response = {
     patients: [
       {
@@ -25,19 +24,19 @@ const getRequest = () => new Promise((resolve) => {
   }, Math.random() * 1000);
 });
 
-function * getPatients() {
+function * getPatients(): Iterable<*> {
   try {
-    yield put({ type: actions.SEARCHING });
-    const { patients } = yield call(getRequest);
-    yield put({ type: actions.SEARCH_SUCCESS, patients });
+    yield put({ type: 'SEARCHING' });
+    const { patients } = ((yield call(api)): any);
+    yield put({ type: 'SEARCH_SUCCESS', patients });
   } catch (error) {
-    yield put({ type: actions.SEARCH_ERROR, error });
+    yield put({ type: 'SEARCH_ERROR', error });
   }
 }
 
 // Search Patients whenever receive a SEARCH action
-function * watchPatients() {
-  yield* takeEvery(actions.SEARCH, getPatients);
+function * watchPatients(): Iterable<*> {
+  yield* takeEvery('SEARCH', getPatients);
 }
 
 export default [

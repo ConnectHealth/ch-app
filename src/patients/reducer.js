@@ -1,5 +1,7 @@
-import { actionTypes as t } from './actions';
+// @flow
 import { OrderedMap } from 'immutable';
+
+import type { Patient, Action } from './actions';
 
 const uuid = () => Math.floor(Math.random() * 100000);
 
@@ -11,20 +13,20 @@ const patientMap = new OrderedMap();
 // use reselect in the future.
 const initialState = patientMap;
 
-export default function patients(state = initialState, action) {
+export default function patients(state: OrderedMap<string, Patient> = initialState, action: Action) {
   switch (action.type) {
-    case t.ADD: {
+    case 'CREATE': {
       return state.set(uuid(), {
-        text: action.text,
+        patient: action.patient,
       });
     }
-    case t.SEARCH_SUCCESS: {
+    case 'SEARCH_SUCCESS': {
       return action.patients.reduce(
         (newState, next) => newState.set(uuid(), next),
         initialState
       );
     }
-    case t.SEARCH_ERROR: {
+    case 'SEARCH_ERROR': {
       return initialState;
     }
     default: {

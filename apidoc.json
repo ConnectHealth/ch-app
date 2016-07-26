@@ -1,0 +1,113 @@
+{
+  "name": "ch-app",
+  "description": "",
+
+  "imports": [],
+
+  "models": {
+    "treatment": {
+      "fields": [
+        {
+          "name": "dateTime",
+          "type": "date-time-iso8601"
+        },
+        {
+          "name": "data",
+          "type": "object"
+        },
+        {
+          "name": "lastUpdated",
+          "type": "date-time-iso8601"
+        },
+        {
+          "name": "lastUpdatedBy",
+          "type": "string"
+        }
+      ]
+    },
+    "treatmentSummary": {
+      "fields": [
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "dateTime",
+          "type": "date-time-iso8601"
+        },
+        {
+          "name": "lastUpdatedBy",
+          "type": "string"
+        }
+      ]
+    },
+    "error": {
+      "description": "An error message from the API.",
+      "fields": [
+        {
+          "name": "status",
+          "type": "string",
+          "description": "A description of the HTTP error code."
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": "A description of the error that occurred."
+        }
+      ]
+    }
+  },
+
+  "resources": {
+    "treatment": {
+      "path": "/v0/:tenant/:patientId/",
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/treatments",
+          "responses": {
+            "200": {
+              "type": "[treatmentSummary]"
+            },
+            "404": {
+              "type": "error"
+            }
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/treatment/:id",
+          "responses": {
+            "200": {
+              "type": "treatment"
+            },
+            "404": {
+              "type": "error"
+            }
+          }
+        },
+        {
+          "method": "POST",
+          "path": "treatment/:id",
+          "body": {
+            "type": "treatment"
+          },
+          "responses": {
+            "201": {
+              "type": "string"
+            },
+            "404": {
+              "type": "error"
+            }
+          }
+        }
+      ]
+    }
+  },
+
+  "unions": {},
+
+  "enums": {},
+
+  "headers": []
+}
