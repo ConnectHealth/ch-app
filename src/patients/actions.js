@@ -1,5 +1,9 @@
 // @flow
-export type Patient = string;
+// FIXME - should this go here?
+export type Patient = {
+  firstName: string,
+  lastName: string,
+};
 
 export type Action =
     { type: 'CREATE', patient: Patient }
@@ -9,7 +13,7 @@ export type Action =
   | { type: 'SEARCH_ERROR' }
   ;
 
-const create = (patient: string): Action => ({ type: 'CREATE', patient });
+const create = (patient: Patient): Action => ({ type: 'CREATE', patient });
 
 const search = (): Action => ({ type: 'SEARCH' });
 

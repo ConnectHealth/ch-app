@@ -21,6 +21,6 @@ const reducers = {
   app,
 };
 
-export {
+export default {
   reducers,
 };

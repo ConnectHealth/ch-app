@@ -2,11 +2,11 @@
 import { takeEvery } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 
-// import { actionTypes as actions } from './actions';
+import type { Patient } from './actions';
 
-const api = () => new Promise((resolve) => {
-  const response = {
-    patients: [
+const api = (): Promise<Array<Patient>> => new Promise((resolve) => {
+  const response: Array<Patient> =
+    [
       {
         firstName: 'John',
         lastName: 'Smith',
@@ -15,16 +15,14 @@ const api = () => new Promise((resolve) => {
         firstName: 'Sarah',
         lastName: 'Brown',
       },
-    ],
-  };
+    ];
 
-  // Faked the AJAX request
   window.setTimeout(() => {
     resolve(response);
   }, Math.random() * 1000);
 });
 
-function * getPatients(): Iterable<*> {
+function* getPatients(): Iterable<*> {
   try {
     yield put({ type: 'SEARCHING' });
     const { patients } = ((yield call(api)): any);
@@ -35,7 +33,7 @@ function * getPatients(): Iterable<*> {
 }
 
 // Search Patients whenever receive a SEARCH action
-function * watchPatients(): Iterable<*> {
+function* watchPatients(): Iterable<*> {
   yield* takeEvery('SEARCH', getPatients);
 }
 

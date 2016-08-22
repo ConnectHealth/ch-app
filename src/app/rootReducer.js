@@ -1,12 +1,13 @@
+// @flow
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import app from '../app';
-import patients from '../patients';
+import { appName, appReducers } from '../app';
+import { patientsName, patientsReducer } from '../patients';
 
 const rootReducer = combineReducers({
-  [app.name]: app.reducers.app,
-  [patients.name]: patients.reducer,
+  [appName]: appReducers.app,
+  [patientsName]: patientsReducer,
   routing: routerReducer,
 });
 

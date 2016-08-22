@@ -2,6 +2,10 @@
 [version]
 0.30.0
 
+[include]
+./src/**/*.js
+./src/**/*.jsx
+
 [ignore]
 .*/node_modules/jsverify/*
 .*/node_modules/fbjs/*
