@@ -11,6 +11,9 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import routes from './routes';
 import configureStore from './store/configureStore';
 
+import { patientStore } from './patients/store';
+
+
 // Needed for React Developer Tools
 window.React = React;
 
@@ -25,7 +28,7 @@ const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={store} patientStore={patientStore}>
     <Router history={history} routes={routes} />
   </Provider>,
   document.getElementById('root')
