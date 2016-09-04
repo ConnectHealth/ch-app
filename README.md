@@ -3,14 +3,11 @@
 # WIP
 
 * [React](https://facebook.github.io/react/)
-* [Redux](http://rackt.org/redux/index.html)
-* [Immutable](https://facebook.github.io/immutable-js/)
+* [Mobx](https://mobxjs.github.io/mobx/)
 * [Material UI](http://material-ui.com/#/)
 * [webpack](https://webpack.github.io/)
 * [Babel](https://babeljs.io/)
 * [ESLint](http://eslint.org/)
-* [redux-saga](https://github.com/yelouafi/redux-saga)
-* [superagent](https://visionmedia.github.io/superagent/)
 
 
 

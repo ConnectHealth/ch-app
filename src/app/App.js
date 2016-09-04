@@ -1,11 +1,9 @@
 import React, { PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import theme from '../theme';
 
-import { actions } from './actions';
+/* import { actions } from './actions';*/
 
 import '../main.css';
 
@@ -35,15 +33,15 @@ App.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-function mapStateToProps(state) {
-  return { title: state.app.title };
-}
+/* function mapStateToProps(state) {
+ *   return { title: state.app.title };
+ * }*/
 
-function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators(actions.updateTitle, dispatch) };
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+/* function mapDispatchToProps(dispatch) {
+ *   return { actions: bindActionCreators(actions.updateTitle, dispatch) };
+ * }
+ * */
+/* export default connect(
+ *   mapStateToProps,
+ *   mapDispatchToProps
+ * )(App);*/

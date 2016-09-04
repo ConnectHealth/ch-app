@@ -4,12 +4,12 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
+import { useStrict } from 'modx';
+import { Provider } from 'modx-react';
+import DevTools from 'mobx-react-devtools';
 
 import routes from './routes';
-import configureStore from './store/configureStore';
 
 import { patientStore } from './patients/store';
 
@@ -23,13 +23,12 @@ window.React = React;
 // https://github.com/zilverline/react-tap-event-plugin
 injectTapEventPlugin();
 
-const store = configureStore();
-
-const history = syncHistoryWithStore(browserHistory, store);
+useStrict(true);
 
 ReactDOM.render(
-  <Provider store={store} patientStore={patientStore}>
-    <Router history={history} routes={routes} />
+  <Provider patientStore={patientStore}>
+    <Router history={browserHistory} routes={routes} />
+    <DevTools />
   </Provider>,
   document.getElementById('root')
 );

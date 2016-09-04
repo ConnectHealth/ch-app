@@ -6,21 +6,22 @@ import { observable, computed } from 'mobx';
 
 class Patient {
   id = Math.floor(Math.random() * 100000).toString();
-  @observable firstName: string = '';
-  @observable lastName: string = '';
+  @observable firstName = '';
+  @observable lastName = '';
 }
 
 class PatientsStore {
-  @observable searchText: string = '';
+  @observable searchText = '';
+  @observable searching = false;
   @observable patients: Array<Patient> = [];
 
-  @computed get searchResults() {
+  @computed get searchResults(): Array<Patient> {
     return this.patients.filter(
       patient => patient.firstName.startsWith(this.searchText)
     );
   }
 
-  create(firstName, lastName) {
+  create(firstName: string, lastName: string) {
     this.patients.push(new Patient(firstName, lastName));
   }
 
@@ -45,4 +46,4 @@ class PatientsStore {
   }
 }
 
-export const patientStore = new PatientsStore();
+export default new PatientsStore();
