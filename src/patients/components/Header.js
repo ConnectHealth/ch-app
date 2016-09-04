@@ -1,13 +1,13 @@
 import React, { PropTypes, Component } from 'react';
-import { observer } from 'mobx';
+import { observer } from 'mobx-react';
 
 import PatientSearch from './PatientSearch.js';
 
-@observer(['patientStore'])
+@observer(['patientsStore'])
 class Header extends Component {
   handleSearch = (text) => {
     if (text.length !== 0) {
-      this.props.patientStore.searchText = text;
+      this.props.patientsStore.searchText = text;
     }
   }
 
@@ -24,11 +24,11 @@ class Header extends Component {
   }
 }
 
-Header.propTypes = {
-  patientStore: PropTypes.object.isRequired,
-};
-Header.contextTypes = {
-  patientStore: PropTypes.object.isRequired,
-};
-
+/* Header.propTypes = {
+ *   patientStore: PropTypes.object.isRequired,
+ * };
+ * Header.contextTypes = {
+ *   patientStore: PropTypes.object.isRequired,
+ * };
+ * */
 export default Header;

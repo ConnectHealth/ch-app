@@ -5,14 +5,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Router, browserHistory } from 'react-router';
-import { useStrict } from 'modx';
-import { Provider } from 'modx-react';
-import DevTools from 'mobx-react-devtools';
+import { useStrict } from 'mobx';
+import { Provider, observer, inject } from 'mobx-react';
+/* import DevTools from 'mobx-react-devtools';*/
 
 import routes from './routes';
 
-import { patientStore } from './patients/store';
+import patientsStore  from './patients/store';
 
+import { observable } from 'mobx';
 
 // Needed for React Developer Tools
 window.React = React;
@@ -26,9 +27,8 @@ injectTapEventPlugin();
 useStrict(true);
 
 ReactDOM.render(
-  <Provider patientStore={patientStore}>
+  <Provider patientsStore={patientsStore} >
     <Router history={browserHistory} routes={routes} />
-    <DevTools />
   </Provider>,
   document.getElementById('root')
 );

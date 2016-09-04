@@ -1,34 +1,31 @@
-import React, { PropTypes } from 'react';
-import { observer } from 'mobx';
+import React, { Component, PropTypes } from 'react';
+import { inject, observer } from 'mobx-react';
 
 import List from 'material-ui/List';
 
 import Header from './Header';
 import PatientItem from './PatientItem';
 
-const defaultStyle = {
-  // width: 300,
-  // marginLeft: 20,
-};
-
-const MainSection = observer(['patientStore'], ({ patientStore }) =>
+import { observable } from 'mobx';
+const MainSection = observer(['patientsStore'], ({patientsStore}) =>
   <div>
-    <Header />
-    <section style={defaultStyle}>
-      <List>
-        {patientStore.searchResults.map(
-          patient => <PatientItem key={patient.id} patient={patient} />
-        )}
-      </List>
-    </section>
+      <Header />
+      <section>
+        <List>
+          {patientsStore.searchResults.map(
+             patient => <PatientItem key={patient.id} patient={patient} />
+           )}
+        </List>
+      </section>
   </div>
 );
 
-// FIXME flowtype
-MainSection.contextTypes = {
-  muiTheme: PropTypes.object.isRequired,
-  patientStore: PropTypes.object.isRequired,
-};
 
+// FIXME flowtype
+/* MainSection.contextTypes = {
+ *   muiTheme: PropTypes.object.isRequired,
+ *   patientStore: PropTypes.object.isRequired,
+ * };
+ * */
 export default MainSection;
 

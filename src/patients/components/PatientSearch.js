@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { observer, observable } from 'mobx';
+import { observer } from 'mobx-react';
+import { action, observable } from 'mobx';
 
 import TextField from 'material-ui/TextField';
 
@@ -7,24 +8,24 @@ const defaultStyle = {
   marginLeft: 20,
 };
 
-@observer(['patientStore'])
+@observer(['patientsStore'])
 class PatientSearch extends Component {
   @observable text = '';
 
-  handleEnter = (e) => {
+  @action handleEnter = (e) => {
     if (e.keyCode === 13) { // on enter
       const text = e.target.value.trim();
-      this.props.patientStore.search(text);
+      this.props.patientsStore.search(text);
       this.text = '';
     }
   }
 
-  handleChange = (e) => {
+  @action handleChange = (e) => {
     this.text = e.target.value;
   }
 
-  handleBlur = (e) => {
-    this.props.patientStore.search(e.target.value);
+  @action handleBlur = (e) => {
+    this.props.patientsStore.search(e.target.value);
   }
 
   render() {
@@ -43,11 +44,11 @@ class PatientSearch extends Component {
   }
 }
 
-PatientSearch.propTypes = {
-  onSearch: PropTypes.func.isRequired,
-  text: PropTypes.string,
-  placeholder: PropTypes.string,
-  patientStore: PropTypes.object.isRequired,
-};
+/* PatientSearch.propTypes = {
+ *   onSearch: PropTypes.func.isRequired,
+ *   text: PropTypes.string,
+ *   placeholder: PropTypes.string,
+ *   patientStore: PropTypes.object.isRequired,
+ * };*/
 
 export default PatientSearch;

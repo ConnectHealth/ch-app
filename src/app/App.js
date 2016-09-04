@@ -1,3 +1,4 @@
+// @flow
 import React, { PropTypes } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
@@ -19,7 +20,7 @@ const App = (props) => {
   return (
     <MuiThemeProvider muiTheme={theme}>
       <div>
-        <AppBar title={props.title} />
+        <AppBar title={'props.title fixme'} />
         <div style={prepareStyles(style.container)}>
           {props.children}
         </div>
@@ -30,7 +31,7 @@ const App = (props) => {
 
 App.propTypes = {
   children: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired,
+  /* title: PropTypes.string.isRequired,*/
 };
 
 /* function mapStateToProps(state) {
@@ -45,3 +46,5 @@ App.propTypes = {
  *   mapStateToProps,
  *   mapDispatchToProps
  * )(App);*/
+
+export default App;
