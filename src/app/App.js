@@ -1,5 +1,5 @@
 // @flow
-import React, { PropTypes } from 'react';
+import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import theme from '../theme';
@@ -15,12 +15,17 @@ const style = {
   },
 };
 
-const App = (props) => {
+type Props = {
+   title: string,
+  children: any,
+}
+
+const App = (props: Props) => {
   const { prepareStyles } = theme;
   return (
     <MuiThemeProvider muiTheme={theme}>
       <div>
-        <AppBar title={'props.title fixme'} />
+        <AppBar title={props.title} />
         <div style={prepareStyles(style.container)}>
           {props.children}
         </div>
@@ -29,10 +34,10 @@ const App = (props) => {
   );
 };
 
-App.propTypes = {
-  children: PropTypes.object.isRequired,
+/* App.propTypes = {*/
+  /* children: PropTypes.object.isRequired,*/
   /* title: PropTypes.string.isRequired,*/
-};
+/* };*/
 
 /* function mapStateToProps(state) {
  *   return { title: state.app.title };

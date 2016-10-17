@@ -1,13 +1,14 @@
-import React, { PropTypes, Component } from 'react';
+// @flow
+import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
-import PatientSearch from './PatientSearch.js';
+import PatientSearch from './PatientSearch';
 
 @observer(['patientsStore'])
 class Header extends Component {
-  handleSearch = (text) => {
+  handleSearch = (text: string) => {
     if (text.length !== 0) {
-      this.props.patientsStore.searchText = text;
+      this.context.patientsStore.searchText = text;
     }
   }
 

@@ -1,6 +1,6 @@
 # https://flowtype.org/docs/advanced-configuration.html
 [version]
-0.32.0
+0.33.0
 
 [include]
 ./src/**/*.js

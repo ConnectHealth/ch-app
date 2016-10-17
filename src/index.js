@@ -6,14 +6,14 @@ import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Router, browserHistory } from 'react-router';
 import { useStrict } from 'mobx';
-import { Provider, observer, inject } from 'mobx-react';
+import { Provider } from 'mobx-react';
 /* import DevTools from 'mobx-react-devtools';*/
 
 import routes from './routes';
 
-import patientsStore  from './patients/store';
+import patientsStore from './patients/store';
 
-import { observable } from 'mobx';
+/* import { observable } from 'mobx';*/
 
 // Needed for React Developer Tools
 window.React = React;

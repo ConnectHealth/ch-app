@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { action, observable } from 'mobx';
 
@@ -8,14 +8,19 @@ const defaultStyle = {
   marginLeft: 20,
 };
 
+type Props = {
+  placeholder: ?string
+}
+
 @observer(['patientsStore'])
 class PatientSearch extends Component {
+  props: Props;
   @observable text = '';
 
   @action handleEnter = (e) => {
     if (e.keyCode === 13) { // on enter
       const text = e.target.value.trim();
-      this.props.patientsStore.search(text);
+      this.context.patientsStore.search(text);
       this.text = '';
     }
   }
@@ -25,7 +30,7 @@ class PatientSearch extends Component {
   }
 
   @action handleBlur = (e) => {
-    this.props.patientsStore.search(e.target.value);
+    this.context.patientsStore.search(e.target.value);
   }
 
   render() {
