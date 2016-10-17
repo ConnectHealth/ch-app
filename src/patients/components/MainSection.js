@@ -1,33 +1,45 @@
 // @flow
-import React from 'react';
+import React, { Component } from 'react';
 import { observer } from 'mobx-react';
+import { action } from 'mobx';
 
 import List from 'material-ui/List';
 
 import Header from './Header';
 import PatientItem from './PatientItem';
 
-/* import { observable } from 'mobx';*/
+import type { PatientsStore } from '../store';
 
-const MainSection = observer(['patientsStore'], ({ patientsStore }) =>
-  <div>
-    <Header />
-    <section>
-      <List>
-        {patientsStore.searchResults.map(
-            patient => <PatientItem key={patient.id} patient={patient} />
-          )}
-      </List>
-    </section>
-  </div>
-);
+type Props = {
+  patientsStore: PatientsStore,
+}
 
+@observer(['patientsStore'])
+class MainSection extends Component {
+  props: Props;
 
-// FIXME flowtype
-/* MainSection.contextTypes = {
- *   muiTheme: PropTypes.object.isRequired,
- *   patientStore: PropTypes.object.isRequired,
- * };
- * */
+  @action handleAdd = () => {
+    this.props.patientsStore.create('tt', 'bb');
+  }
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <section>
+          <List>
+            {this.props.patientsStore.searchResults.map(
+                patient => <PatientItem key={patient.id} patient={patient} />
+              )}
+          </List>
+        </section>
+        <section>
+          <button onClick={this.handleAdd}>Add</button>
+        </section>
+      </div>
+      );
+  }
+}
+
 export default MainSection;
 

@@ -1,15 +1,18 @@
+// @flow
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import { action, observable } from 'mobx';
 
 import TextField from 'material-ui/TextField';
+import type { PatientsStore } from '../store';
 
 const defaultStyle = {
   marginLeft: 20,
 };
 
 type Props = {
-  placeholder: ?string
+  placeholder: ?string,
+  patientsStore: ?PatientsStore, // FIXME optional because injected
 }
 
 @observer(['patientsStore'])
@@ -17,20 +20,17 @@ class PatientSearch extends Component {
   props: Props;
   @observable text = '';
 
-  @action handleEnter = (e) => {
+  @action handleEnter = (e: KeyboardEvent) => {
     if (e.keyCode === 13) { // on enter
       const text = e.target.value.trim();
-      this.context.patientsStore.search(text);
+      this.props.patientsStore.search(text);
       this.text = '';
     }
   }
 
-  @action handleChange = (e) => {
-    this.text = e.target.value;
-  }
-
-  @action handleBlur = (e) => {
-    this.context.patientsStore.search(e.target.value);
+  @action handleChange = (target: HTMLInputElement) => {
+    this.text = target.value;
+    this.props.patientsStore.search(target.value);
   }
 
   render() {
@@ -42,18 +42,12 @@ class PatientSearch extends Component {
         autoFocus="true"
         value={this.text}
         onBlur={this.handleBlur}
-        onChange={this.handleChange}
+        onChange={({target}: {target: HTMLInputElement}) => this.handleChange(target)}
+        onBlur={({target}: {target: HTMLInputElement}) => this.handleChange(target)}
         onKeyDown={this.handleEnter}
       />
     );
   }
 }
-
-/* PatientSearch.propTypes = {
- *   onSearch: PropTypes.func.isRequired,
- *   text: PropTypes.string,
- *   placeholder: PropTypes.string,
- *   patientStore: PropTypes.object.isRequired,
- * };*/
 
 export default PatientSearch;

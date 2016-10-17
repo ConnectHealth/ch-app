@@ -7,6 +7,10 @@ export class Patient {
   id = Math.floor(Math.random() * 100000).toString();
   @observable firstName = '';
   @observable lastName = '';
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
 }
 
 // FIXME - move
@@ -14,12 +18,13 @@ export class Patient {
  *
  * `;
  * */
-class PatientsStore {
+export class PatientsStore {
   @observable searchText = '';
   @observable searching = false;
   @observable patients: Array<Patient> = // FIXME - use fetch
     [
-      new Patient(1, 'John', 'Smith'),
+      /* new Patient('John'),*/
+      /* new Patient('John', 'Smith'),*/
       /* {
        *   id: 1,
        *   firstName: 'John',
@@ -42,31 +47,32 @@ class PatientsStore {
     this.searchText = text;
   }
 
-  create(firstName: string, lastName: string) {
+  @action create(firstName: string, lastName: string) {
+    console.log(firstName);
     this.patients.push(new Patient(firstName, lastName));
   }
 
-  fetchPatients() {
-    this.searching = true;
-
-    // Use superagent
-    this.patients =
-    [
-      new Patient(1, 'John', 'Smith'),
-      /* [
-       *   {
-       *     id: 1,
-       *     firstName: 'John',
-       *     lastName: 'Smith',
-       *   },
-       *   {
-       *     id: 2,
-       *     firstName: 'Sarah',
-       *     lastName: 'Brown',
-       *   },*/
-    ];
-    this.searching = false;
-  }
+//  @action fetchPatients() {
+//    this.searching = true;
+//
+//    Use superagent
+//    this.patients =
+//      [
+//        new Patient('John', 'Smith'),
+//        /* [
+//         *   {
+//         *     id: 1,
+//         *     firstName: 'John',
+//         *     lastName: 'Smith',
+//         *   },
+//         *   {
+//         *     id: 2,
+//         *     firstName: 'Sarah',
+//         *     lastName: 'Brown',
+//         *   },*/
+//      ];
+//    this.searching = false;
+//  }
 }
 
 export default new PatientsStore();
