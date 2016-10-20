@@ -1,3 +1,4 @@
+// @flow
 import App from './App';
 
 export const name = 'app';

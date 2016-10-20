@@ -5,9 +5,9 @@ import MenuItem from 'material-ui/MenuItem';
 import ListItem from 'material-ui/List/ListItem';
 import IconButton from 'material-ui/IconButton';
 import { colors } from 'material-ui/styles';
-import type { Patient } from '../store';
-
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+
+import type { Patient } from '../store';
 
 const PatientItem = ({ patient } : { patient: Patient}) => {
   const nothing = () => {};

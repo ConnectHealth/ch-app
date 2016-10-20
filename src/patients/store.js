@@ -48,7 +48,6 @@ export class PatientsStore {
   }
 
   @action create(firstName: string, lastName: string) {
-    console.log(firstName);
     this.patients.push(new Patient(firstName, lastName));
   }
 
