@@ -8,14 +8,14 @@ import List from 'material-ui/List';
 import Header from './Header';
 import PatientItem from './PatientItem';
 
-import type { PatientsStore } from '../store';
+import type { PatientsStore } from './store';
 
 type Props = {
   patientsStore: PatientsStore,
 }
 
 @observer(['patientsStore'])
-class MainSection extends Component {
+class Main extends Component {
   props: Props;
 
   @action handleAdd = () => {
@@ -41,5 +41,5 @@ class MainSection extends Component {
   }
 }
 
-export default MainSection;
+export default Main;
 

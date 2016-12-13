@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 import { action, observable } from 'mobx';
 
 import TextField from 'material-ui/TextField';
-import type { PatientsStore } from '../store';
+import type { PatientsStore } from './store';
 
 const defaultStyle = {
   marginLeft: 20,

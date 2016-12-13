@@ -7,7 +7,7 @@ import IconButton from 'material-ui/IconButton';
 import { colors } from 'material-ui/styles';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
-import type { Patient } from '../store';
+import type { Patient } from './store';
 
 const PatientItem = ({ patient } : { patient: Patient}) => {
   const nothing = () => {};
