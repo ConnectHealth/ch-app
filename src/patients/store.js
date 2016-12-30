@@ -21,7 +21,7 @@ export class Patient {
 export class PatientsStore {
   @observable searchText = '';
   @observable searching = false;
-  @observable patients: Array<Patient> = // FIXME - use fetch
+  @observable patients: Patient[] = // FIXME - use fetch
     [
       /* new Patient('John'),*/
       /* new Patient('John', 'Smith'),*/
@@ -37,9 +37,9 @@ export class PatientsStore {
        * },*/
     ];
 
-  @computed get searchResults(): Array<Patient> {
+  @computed get searchResults(): Patient[] {
     return this.patients.filter(
-      patient => patient.firstName.startsWith(this.searchText)
+      patient => patient.firstName.startsWith(this.searchText),
     );
   }
 

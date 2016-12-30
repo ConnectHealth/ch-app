@@ -30,11 +30,7 @@ const PatientItem = ({ patient } : { patient: Patient}) => {
       primaryText={text}
       rightIconButton={rightIconMenu}
     />
-    );
+  );
 };
 
-/* PatientItem.propTypes = {
- *   patient: PropTypes.object.isRequired,
- * };
- * */
 export default PatientItem;

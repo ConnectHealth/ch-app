@@ -15,15 +15,14 @@
 
 ## Package installation
 ```bash
-$ npm install
+$ yarn install
 ```
 
 ## Use development server
 For development server, webpack-dev-server is reasonable. It monitors update files and rebuild them automatically. Since webpack cli command is registerd in `package.json` in this project, just type following command to run webpack-dev-server.
 
 ```bash
-$ npm start
-http://localhost:8080/carte-blanche
+$ yarn start
 ```
 
 Be careful! the webpack-dev-server rebuild files in `src` automatically but the bundled files are just placed on its memory. Build manually by allowing next section(Build assets), if you want need the bundled files.
@@ -31,27 +30,27 @@ Be careful! the webpack-dev-server rebuild files in `src` automatically but the 
 ## Standards
 Testing
 
-    $ npm test
+    $ yarn test
     # or
-    $ npm run test:watch
+    $ yarn run test:watch
 
 Check styles before making a PR
 
-    $ npm run lint
+    $ yarn run lint
 
 Auto formatting
 
-    $ npm run format
+    $ yarn run format
     
 Ready for PR - runs tests and linting
 
-    $ npm run check
+    $ yarn run check
 
 
 ## Build assets
 To put compiled files into `static` directory, type the following command.
 
 ```bash
-$ npm run build
+$ yarn run build
 ```
 

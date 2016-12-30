@@ -1,7 +1,7 @@
 {
   "extends": "airbnb",
   "env": {
-    "mocha": true,
+    "jest": true,
     "browser": true
   },
   "plugins": ["react", "flowtype"],
@@ -13,7 +13,18 @@
     "no-unused-vars": ["error", {"args": "none"}],
     "react/jsx-boolean-value": ["error", "always"],
     "flowtype/define-flow-type": 1,
-    "react/jsx-filename-extension": "off"
+    "react/jsx-filename-extension": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}],
+    "react/sort-comp": [1, {
+      order: [
+        '/^props/',
+        '/^state/',
+        'lifecycle',
+        'static-methods',
+        'everything-else',
+        'render'
+      ]
+    }],
   },
   "settings": {
     "import/resolver": "webpack"
