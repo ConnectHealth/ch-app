@@ -29,7 +29,7 @@ class Main extends Component {
         <section>
           <List>
             {this.props.patientsStore.searchResults.map(
-                patient => <PatientItem key={patient.id} patient={patient} />
+                patient => <PatientItem key={patient.id} patient={patient} />,
               )}
           </List>
         </section>
@@ -37,7 +37,7 @@ class Main extends Component {
           <button onClick={this.handleAdd}>Add</button>
         </section>
       </div>
-      );
+    );
   }
 }
 

@@ -22,7 +22,7 @@ export class PatientsStore {
   @observable searchText = '';
   @observable searching = false;
   @observable patients: Patient[] = // FIXME - use fetch
-    [
+  [
       /* new Patient('John'),*/
       /* new Patient('John', 'Smith'),*/
       /* {
@@ -35,7 +35,7 @@ export class PatientsStore {
        *   firstName: 'Sarah',
        *   lastName: 'Brown',
        * },*/
-    ];
+  ];
 
   @computed get searchResults(): Patient[] {
     return this.patients.filter(

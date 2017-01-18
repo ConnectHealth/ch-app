@@ -30,5 +30,5 @@ ReactDOM.render(
   <Provider patientsStore={patientsStore} >
     <Router history={browserHistory} routes={routes} />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
