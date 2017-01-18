@@ -46,8 +46,8 @@ module.exports = {
         exclude: /node_modules/,
         loaders: [
           'react-hot', 
-          'babel?cacheDirectory'
-        ]
+          'babel?cacheDirectory',
+        ],
       },{
         test: /\.css$/,
         exclude: /node_modules/,
@@ -56,7 +56,7 @@ module.exports = {
         test: /\.json$/,
         loader: 'json',
       },
-    ]
+    ],
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
@@ -65,26 +65,26 @@ module.exports = {
     return [
       postCSSImport({
         addDependencyTo: webpack,
-        path: ['./src/styles']
+        path: ['./src/styles'],
       }),
       postCSSNext({
         features: {
           rem: {
             rootValue: '14px',
-          }
-        }
+          },
+        },
       }),
       rucksack(),
       cssnano({
         autoprefixer: false,
         discardComments: {
-          removeAll: true
+          removeAll: true,
         },
         discardUnused: false,
         mergeIdents: false,
         reduceIdents: false,
         safe: true,
-        sourcemap: true
+        sourcemap: true,
       }),
       postCSSReporter(),
     ]

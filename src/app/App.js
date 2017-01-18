@@ -1,11 +1,10 @@
-import React, { PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+// @flow
+import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import theme from '../theme';
 
-import { actions } from './actions';
+/* import { actions } from './actions';*/
 
 import '../main.css';
 
@@ -16,7 +15,12 @@ const style = {
   },
 };
 
-const App = (props) => {
+type Props = {
+   title: string,
+  children: any,
+}
+
+const App = (props: Props) => {
   const { prepareStyles } = theme;
   return (
     <MuiThemeProvider muiTheme={theme}>
@@ -30,20 +34,22 @@ const App = (props) => {
   );
 };
 
-App.propTypes = {
-  children: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired,
-};
+/* App.propTypes = {*/
+  /* children: PropTypes.object.isRequired,*/
+  /* title: PropTypes.string.isRequired,*/
+/* };*/
 
-function mapStateToProps(state) {
-  return { title: state.app.title };
-}
+/* function mapStateToProps(state) {
+ *   return { title: state.app.title };
+ * }*/
 
-function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators(actions.updateTitle, dispatch) };
-}
+/* function mapDispatchToProps(dispatch) {
+ *   return { actions: bindActionCreators(actions.updateTitle, dispatch) };
+ * }
+ * */
+/* export default connect(
+ *   mapStateToProps,
+ *   mapDispatchToProps
+ * )(App);*/
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default App;
