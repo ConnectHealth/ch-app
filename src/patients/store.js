@@ -18,7 +18,7 @@ export class Patient {
  *
  * `;
  * */
-export class PatientsStore {
+class PatientsStore {
   @observable searchText = '';
   @observable searching = false;
   @observable patients: Patient[] = // FIXME - use fetch
@@ -74,4 +74,4 @@ export class PatientsStore {
 //  }
 }
 
-export default new PatientsStore();
+export default PatientsStore;

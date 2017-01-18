@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 import { action, observable } from 'mobx';
 
 import TextField from 'material-ui/TextField';
-import type { PatientsStore } from './store';
+import type { Stores } from '../stores';
 
 const defaultStyle = {
   marginLeft: 20,
@@ -12,13 +12,12 @@ const defaultStyle = {
 
 type Props = {
   placeholder: ?string,
-  patientsStore?: PatientsStore, // optional because injected
+  stores: Stores,
 }
 
-@observer(['patientsStore'])
+@observer()
 class PatientSearch extends Component {
   props: Props;
-  store = (this.props: any).patientsStore; // flow
 
   @observable text = '';
 
@@ -33,7 +32,7 @@ class PatientSearch extends Component {
 
   @action handleChange = (target: HTMLInputElement) => {
     this.text = target.value;
-    this.store.search(target.value);
+    this.props.stores.patientsStore.search(target.value);
   }
 
   render() {
@@ -45,6 +44,7 @@ class PatientSearch extends Component {
         autoFocus="true"
         value={this.text}
         onChange={({ target }: {target: HTMLInputElement}) => this.handleChange(target)}
+        // eslint-disable-next-line react/no-unused-prop-types
         onBlur={({ target }: {target: HTMLInputElement}) => this.handleChange(target)}
         onKeyDown={this.handleEnter}
       />

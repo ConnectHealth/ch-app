@@ -3,7 +3,7 @@ import 'babel-polyfill';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+/* import injectTapEventPlugin from 'react-tap-event-plugin';*/
 import { Router, browserHistory } from 'react-router';
 import { useStrict } from 'mobx';
 import { Provider } from 'mobx-react';
@@ -22,7 +22,7 @@ window.React = React;
 // Can go away when react 1.0 release
 // Check this repo:
 // https://github.com/zilverline/react-tap-event-plugin
-injectTapEventPlugin();
+/* injectTapEventPlugin();*/
 
 useStrict(true);
 

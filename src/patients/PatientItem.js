@@ -10,7 +10,6 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import type { Patient } from './store';
 
 const PatientItem = ({ patient } : { patient: Patient}) => {
-  const nothing = () => {};
   const iconButtonElement = (
     <IconButton>
       <MoreVertIcon color={colors.grey400} />
@@ -18,8 +17,8 @@ const PatientItem = ({ patient } : { patient: Patient}) => {
   );
   const rightIconMenu = (
     <IconMenu iconButtonElement={iconButtonElement}>
-      <MenuItem primaryText="Edit" onTouchTap={nothing()} />
-      <MenuItem primaryText="Delete" onTouchTap={nothing()} />
+      <MenuItem primaryText="Edit" />
+      <MenuItem primaryText="Delete" />
     </IconMenu>
   );
 
