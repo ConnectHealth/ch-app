@@ -1,4 +1,6 @@
-exports[`test simple html 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`simple html 1`] = `
 <div>
   <span
     disabled={undefined}
@@ -36,15 +38,18 @@ exports[`test simple html 1`] = `
         "textDecoration": "none",
         "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
         "verticalAlign": null,
+        "zIndex": 1,
       }
     }
-    tabIndex={0}>
+    tabIndex={0}
+  >
     <div
       onMouseDown={[Function]}
       onMouseLeave={[Function]}
       onMouseUp={[Function]}
       onTouchEnd={[Function]}
-      onTouchStart={[Function]}>
+      onTouchStart={[Function]}
+    >
       <div
         style={
           Object {
@@ -56,7 +61,8 @@ exports[`test simple html 1`] = `
             "paddingTop": 16,
             "position": "relative",
           }
-        }>
+        }
+      >
         <div
           className={undefined}
           onMouseDown={[Function]}
@@ -72,7 +78,8 @@ exports[`test simple html 1`] = `
               "right": 4,
               "top": 0,
             }
-          }>
+          }
+        >
           <button
             disabled={false}
             href={undefined}
@@ -108,16 +115,19 @@ exports[`test simple html 1`] = `
                 "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
                 "verticalAlign": null,
                 "width": 48,
+                "zIndex": 1,
               }
             }
             tabIndex={0}
-            type="button">
+            type="button"
+          >
             <div
               onMouseDown={[Function]}
               onMouseLeave={[Function]}
               onMouseUp={[Function]}
               onTouchEnd={[Function]}
-              onTouchStart={[Function]}>
+              onTouchStart={[Function]}
+            >
               <svg
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
@@ -133,9 +143,11 @@ exports[`test simple html 1`] = `
                     "width": 24,
                   }
                 }
-                viewBox="0 0 24 24">
+                viewBox="0 0 24 24"
+              >
                 <path
-                  d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                  d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                />
               </svg>
             </div>
           </button>
@@ -144,14 +156,16 @@ exports[`test simple html 1`] = `
               Object {
                 "display": "none",
               }
-            } />
+            }
+          />
         </div>
         <div
           style={
             Object {
               "muiPrepared": true,
             }
-          }>
+          }
+        >
           first last
         </div>
       </div>
