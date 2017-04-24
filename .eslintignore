@@ -1,0 +1,4 @@
+flow-typed/*
+flow-coverage/*
+coverage/*
+src/assets/*

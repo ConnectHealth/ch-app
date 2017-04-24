@@ -4,16 +4,10 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 /* import injectTapEventPlugin from 'react-tap-event-plugin';*/
-import { Router, browserHistory } from 'react-router';
 import { useStrict } from 'mobx';
-import { Provider } from 'mobx-react';
 /* import DevTools from 'mobx-react-devtools';*/
 
-import routes from './routes';
-
-import patientsStore from './patients/store';
-
-/* import { observable } from 'mobx';*/
+import App from 'app/App';
 
 // Needed for React Developer Tools
 window.React = React;
@@ -27,8 +21,6 @@ window.React = React;
 useStrict(true);
 
 ReactDOM.render(
-  <Provider patientsStore={patientsStore} >
-    <Router history={browserHistory} routes={routes} />
-  </Provider>,
+  <App />,
   document.getElementById('root'),
 );

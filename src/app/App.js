@@ -2,9 +2,14 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import theme from '../theme';
+import theme from 'theme';
+import { Router, Route } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
 
-/* import { actions } from './actions';*/
+import { syncHistoryWithStore } from 'mobx-react-router';
+
+import Stores from 'app/stores';
+import PatientsMain from 'patients/Main';
 
 import '../main.css';
 
@@ -15,36 +20,27 @@ const style = {
   },
 };
 
-type Props = {
-  title: string,
-  children: any,
-}
+const stores = new Stores();
 
-const App = (props: Props) => {
-  const { prepareStyles } = theme;
-  return (
-    <MuiThemeProvider muiTheme={theme}>
+const browserHistory = createBrowserHistory();
+const history = syncHistoryWithStore(browserHistory, stores.routerStore);
+
+const patientsMain = () => <PatientsMain patientStore={stores.patientStore} />;
+
+const { prepareStyles } = theme;
+
+const App = () => (
+  <MuiThemeProvider muiTheme={theme}>
+    <Router history={history}>
       <div>
-        <AppBar title={props.title} />
+        <AppBar title={'Test me'} />
         <div style={prepareStyles(style.container)}>
-          {props.children}
+          <Route path="/" component={patientsMain} />
+          <Route path="/person/:id" component={patientsMain} />
         </div>
       </div>
-    </MuiThemeProvider>
-  );
-};
-
-/* function mapStateToProps(state) {
- *   return { title: state.app.title };
- * }*/
-
-/* function mapDispatchToProps(dispatch) {
- *   return { actions: bindActionCreators(actions.updateTitle, dispatch) };
- * }
- * */
-/* export default connect(
- *   mapStateToProps,
- *   mapDispatchToProps
- * )(App);*/
+    </Router>
+  </MuiThemeProvider>
+);
 
 export default App;

@@ -3,10 +3,10 @@ const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 const ROOT_PATH = path.resolve(__dirname, '..');
+const resolve = p => path.resolve(ROOT_PATH, p);
 
 module.exports = env => ({
-
-  context: path.resolve(ROOT_PATH, 'src'),
+  context: resolve('src'),
 
   entry: [
     'react-hot-loader/patch',
@@ -16,11 +16,11 @@ module.exports = env => ({
     './index.js',
   ],
 
-  devtool: 'cheap-module-eval-source-map',
+  devtool: '#cheap-module-eval-source-map',
 
   output: {
     publicPath: '/',
-    path: path.resolve(ROOT_PATH, 'dist/dev'),
+    path: resolve('dist/dev'),
     filename: 'bundle.js',
   },
 
@@ -59,9 +59,7 @@ module.exports = env => ({
       },
       {
         test: /\.svg$/,
-        use: [
-          'svg-url-loader',
-        ],
+        use: ['svg-url-loader'],
       },
       {
         test: /\.png$/,
@@ -129,14 +127,18 @@ module.exports = env => ({
     ],
   },
 
+  resolve: {
+    modules: [resolve('src'), resolve('node_modules')],
+  },
+
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new HTMLWebpackPlugin({
       inject: true,
-      template: path.resolve(ROOT_PATH, 'src/index.html'),
-      showErrors: true
+      template: resolve('src/index.html'),
+      showErrors: true,
     }),
     new webpack.DefinePlugin({
       'process.env': {
@@ -146,19 +148,19 @@ module.exports = env => ({
   ],
 
   //devServer: {
-    //stats: 'minimal',
-    //hot: true,
-    //publicPath: '/',
-    //port: 8080,
-    //host: 'localhost',
-    //historyApiFallback: true,
-    //noInfo: false,
-    //proxy: {
-      //'/api': {
-        //changeOrigin: true,
-        //target: 'http://api.apidoc.me',
-        //pathRewrite: { '^/api': '' },
-      //},
-    //},
+  //stats: 'minimal',
+  //hot: true,
+  //publicPath: '/',
+  //port: 8080,
+  //host: 'localhost',
+  //historyApiFallback: true,
+  //noInfo: false,
+  //proxy: {
+  //'/api': {
+  //changeOrigin: true,
+  //target: 'http://api.apidoc.me',
+  //pathRewrite: { '^/api': '' },
+  //},
+  //},
   //},
 });
