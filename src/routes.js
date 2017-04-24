@@ -3,15 +3,17 @@ import React from 'react';
 import { IndexRoute, Route } from 'react-router';
 
 import App from './app/App';
-import stores from './stores';
-import PatientsMain from './patients/Main';
+import RootStore from './stores';
+import PatientMain from './patients/Main';
 
-const patientsMain = () => <PatientsMain stores={stores} />;
+const rootStore = new RootStore();
+
+const patientMain = () => <PatientMain patientStore={rootStore.patientStore} />;
 
 const routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={patientsMain} />
-    <Route path="/person/:id" component={patientsMain} />
+    <IndexRoute component={patientMain} />
+    <Route path="/person/:id" component={patientMain} />
   </Route>
 );
 

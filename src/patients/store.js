@@ -1,5 +1,6 @@
 // @flow
 import { action, observable, computed } from 'mobx';
+import type RootStore from '../stores.js';
 
 /* import ApolloClient from 'apollo-client'; // default?*/
 
@@ -18,7 +19,8 @@ export class Patient {
  *
  * `;
  * */
-class PatientsStore {
+export default class PatientStore {
+  root: RootStore;
   @observable searchText = '';
   @observable searching = false;
   @observable patients: Patient[] = // FIXME - use fetch
@@ -36,6 +38,10 @@ class PatientsStore {
        *   lastName: 'Brown',
        * },*/
   ];
+
+  constructor(root: RootStore) {
+    this.root = root;
+  }
 
   @computed get searchResults(): Patient[] {
     return this.patients.filter(
@@ -74,4 +80,3 @@ class PatientsStore {
 //  }
 }
 
-export default PatientsStore;

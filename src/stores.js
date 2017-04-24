@@ -1,14 +1,11 @@
 // @flow
-import PatientsStore from './patients/store';
+import PatientStore from './patients/store';
 
-export type Stores = {
-  patientsStore: PatientsStore,
+export default class RootStore {
+  patientStore: PatientStore
+
+  constructor() {
+    this.patientStore = new PatientStore(this);
+  }
 }
 
-const patientsStore = new PatientsStore();
-
-const stores: Stores = {
-  patientsStore,
-};
-
-export default stores;

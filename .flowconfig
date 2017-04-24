@@ -1,6 +1,6 @@
 # https://flowtype.org/docs/advanced-configuration.html
 [version]
-0.38.0
+0.44.1
 
 [include]
 ./src/**/*.js
@@ -9,6 +9,7 @@
 [ignore]
 .*/node_modules/jsverify/*
 .*/node_modules/fbjs/*
+.*/node_modules/react-event-listener/*
 .*/node_modules/react-motion/*
 .*/node_modules/systemjs-builder/*
 .*/node_modules/stylelint/*

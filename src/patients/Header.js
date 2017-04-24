@@ -2,15 +2,15 @@
 import React from 'react';
 
 import PatientSearch from './PatientSearch';
-import type { Stores } from '../stores';
+import type PatientStores from './store';
 
 type Props = {
-  stores: Stores;
+  patientStore: PatientStores;
 }
 
 const Header = (props: Props) =>
   <header className="header">
-    <PatientSearch placeholder="Find patient" stores={props.stores} />
+    <PatientSearch placeholder="Find patient" patientStore={props.patientStore} />
   </header>;
 
 export default Header;

@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 import { action, observable } from 'mobx';
 
 import TextField from 'material-ui/TextField';
-import type { Stores } from '../stores';
+import type PatientStore from './store';
 
 const defaultStyle = {
   marginLeft: 20,
@@ -12,10 +12,10 @@ const defaultStyle = {
 
 type Props = {
   placeholder: ?string,
-  stores: Stores,
+  patientStore: PatientStore,
 }
 
-@observer()
+@observer
 class PatientSearch extends Component {
   props: Props;
 
@@ -32,7 +32,7 @@ class PatientSearch extends Component {
 
   @action handleChange = (target: HTMLInputElement) => {
     this.text = target.value;
-    this.props.stores.patientsStore.search(target.value);
+    this.props.patientStore.search(target.value);
   }
 
   render() {

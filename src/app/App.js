@@ -16,7 +16,7 @@ const style = {
 };
 
 type Props = {
-   title: string,
+  title: string,
   children: any,
 }
 
@@ -33,11 +33,6 @@ const App = (props: Props) => {
     </MuiThemeProvider>
   );
 };
-
-/* App.propTypes = {*/
-  /* children: PropTypes.object.isRequired,*/
-  /* title: PropTypes.string.isRequired,*/
-/* };*/
 
 /* function mapStateToProps(state) {
  *   return { title: state.app.title };

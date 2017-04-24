@@ -8,28 +8,28 @@ import List from 'material-ui/List';
 import Header from './Header';
 import PatientItem from './PatientItem';
 
-import type { Stores } from '../stores';
+import type PatientStore from './store';
 
 type Props = {
-  stores: Stores,
+  patientStore: PatientStore,
 }
 
-@observer()
+@observer
 class Main extends Component {
   props: Props;
 
   @action handleAdd = () => {
-    this.props.stores.patientsStore.create('tt', 'bb');
+    this.props.patientStore.create('tt', 'bb');
   }
 
   render() {
     return (
       <div>
-        <Header stores={this.props.stores} />
+        <Header patientStore={this.props.patientStore} />
         <section>
           <List>
-            {this.props.stores.patientsStore.searchResults.map(
-                patient => <PatientItem key={patient.id} patient={patient} />,
+            {this.props.patientStore.searchResults.map(
+               patient => <PatientItem key={patient.id} patient={patient} />,
               )}
           </List>
         </section>
